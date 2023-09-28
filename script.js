@@ -53,12 +53,12 @@ function checkWin(board, player) {
 function gameOver(gameWon) {
 	for (let index of winCombos[gameWon.index]) {
 		document.getElementById(index).style.backgroundColor =
-			gameWon.player == huPlayer ? "blue" : "red";
+			gameWon.player == humanPlayer ? "blue" : "red";
 	}
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].removeEventListener('click', turnClick, false);
 	}
-	declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose.");
+	declareWinner(gameWon.player == humanPlayer ? "You win!" : "You lose.");
 }
 
 function declareWinner(who) {
@@ -67,7 +67,7 @@ function declareWinner(who) {
 }
 
 function emptySquares() {
-	return origBoard.filter(s => typeof s == 'number');
+	return originalBoard.filter(s => typeof s == 'number');
 }
 
 function bestSpot() {
