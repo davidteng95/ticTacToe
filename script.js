@@ -27,7 +27,10 @@ function startGame() {
 }
 
 function turnClick(square) {
-  turn(square.target.id, humanPlayer);
+  if (typeof originalBoard[square.target.id] == 'number') {
+    turn(square.target.id, humanPlayer)
+    if (!checkTie()) turn(bestSpot(), aiPlayer);
+  }
 }
 
 function turn(squareId, player) {
